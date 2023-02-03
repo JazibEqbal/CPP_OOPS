@@ -13,8 +13,16 @@ int main(){
     }
  }
      for(int i=0;i<rows;i++){
+        for(int j=i;j<columns;j++){
+            int temp;
+            temp= a[i][j];
+            a[i][j]=a[j][i];
+            a[j][i]=temp;
+    }
+ }
+ for(int i=0;i<rows;i++){
         for(int j=0;j<columns;j++){
-            cout<<a[i][j]<<" ";
+            cout<<a[i][j];
     }
     cout<<"\n";
  }
