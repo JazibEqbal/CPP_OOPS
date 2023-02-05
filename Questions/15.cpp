@@ -49,6 +49,7 @@ void Complex::addComplex(Complex c,Complex c1){
        Complex res;
        res.real = c.real+ c1.real;
        res.imag= c.imag+c1.imag;
+       cout<<"Addition of two complex numbers is ";
        if(imag <0){
             cout<<res.real<<"-"<<res.imag<<"i"<<endl;
        }else{
