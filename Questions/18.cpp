@@ -11,6 +11,7 @@ class Employee{
        Employee(int id,string name,double salary);
        void accept(int id,string name,double salary);
        void display();
+       void update(int id,string name,double salary);
 };
 Employee::Employee(){
     emp_id = 0;
@@ -33,10 +34,14 @@ void Employee::display(){
     cout<<"Name:"<<this->emp_name<<endl;
     cout<<"Salary "<<this->salary<<endl;
 }
-
+void Employee::update(int id,string name,double salary){
+    this->emp_id=id;
+    this->emp_name=name;
+    this->salary=salary;
+};
 int main(){
-    Employee e[5];
-    for(int i=0;i<5;i++){
+    Employee e[2];
+    for(int i=0;i<2;i++){
         cout<<"Enter "<<i+1<<" Employee ID: " <<endl;
         int id;
         cin>>id;
@@ -49,7 +54,12 @@ int main(){
         cin>>salary;
        e[i].accept(id,name,salary);
     }
-    for(int i=0;i<5;i++){
+    //Updating
+    int i;
+    cin>>i;
+    e[i].update(2,"JJJJJJ",400.90);
+    //Displaying
+    for(int i=0;i<2;i++){
        e[i].display();
     }
     return 0;
