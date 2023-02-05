@@ -22,6 +22,7 @@ public:
     //Copy constructor
     Array(Array& x){
         size=x.size;
+        arr=x.arr;
     }
     ~Array(){
         delete[] arr;
