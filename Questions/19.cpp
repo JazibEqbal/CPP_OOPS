@@ -13,7 +13,7 @@ class Vehicle_Policy{
             vehicle_name = "";
             amount = 0;
         }
-        Vehicle_Policy(int policy_id,string vehicle_name,double amount){
+        void set(int policy_id,string vehicle_name,double amount){
             this->policy_id = policy_id;
             this->vehicle_name = vehicle_name;
             this->amount = amount;
@@ -41,17 +41,43 @@ class Vehicle_Policy{
             cout<<"Vehicle_Name: "<<getName()<<endl;
             cout<<"Amount: "<<getAmount()<<endl;
         }
+       friend void sort(int n,Vehicle_Policy *v);
 };
-
+void sort(int n,Vehicle_Policy *v){
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                int temp;
+                if(v[i].amount > v[j].amount){
+                    temp=v[i].amount;
+                    v[i].amount=v[j].amount;
+                    v[j].amount=temp;
+                }
+            }
+        }
+    }
 
 int main(){
-    Vehicle_Policy v[3];
-    //v[0].display();
-    v[0].setAmount(10);
-    v[1].setAmount(20);
-    v[2].setAmount(5);
-    for(int i=0; i<3; i++){
-        cout<<v[i].getAmount()<<endl;
+    Vehicle_Policy *v;
+    cout<<"Enter number of records ";
+    int n;
+    cin>>n;
+    v=new Vehicle_Policy[n];
+    for(int i=0;i<n;i++){
+        cout<<"Enter id "<<i+1<<endl;
+        int id;
+        cin>>id;
+        cout<<"Enter name"<<endl;
+        string name;
+        cin.ignore();
+        getline(cin,name);
+        cout<<"Enter amount"<<endl;
+        double amount;
+        cin>>amount;
+        v[i].set(id,name,amount);
+    }
+    sort(n,v);
+    for(int i=0; i<n; i++){
+        v[i].display();
     }
     return 0;
 }
