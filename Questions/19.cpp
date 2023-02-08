@@ -42,6 +42,7 @@ class Vehicle_Policy{
             cout<<"Amount: "<<getAmount()<<endl;
         }
        friend void sort(int n,Vehicle_Policy *v);
+       ~Vehicle_Policy(){}
 };
 void sort(int n,Vehicle_Policy *v){
         for(int i=0;i<n;i++){
