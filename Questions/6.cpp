@@ -1,7 +1,6 @@
 #include<iostream>
 using namespace std;
 
-
 void insertElement(int a[],int index,int n,int key){
     for(int i = n; i >index; i--){
             a[i] = a[i-1];
