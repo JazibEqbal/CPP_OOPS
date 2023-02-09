@@ -41,21 +41,9 @@ class Vehicle_Policy{
             cout<<"Vehicle_Name: "<<getName()<<endl;
             cout<<"Amount: "<<getAmount()<<endl;
         }
-       friend void sort(int n,Vehicle_Policy *v);
        ~Vehicle_Policy(){}
 };
-void sort(int n,Vehicle_Policy *v){
-        for(int i=0;i<n;i++){
-            for(int j=i+1;j<n;j++){
-                int temp;
-                if(v[i].amount > v[j].amount){
-                    temp=v[i].amount;
-                    v[i].amount=v[j].amount;
-                    v[j].amount=temp;
-                }
-            }
-        }
-    }
+
 
 int main(){
     Vehicle_Policy *v;
@@ -76,7 +64,6 @@ int main(){
         cin>>amount;
         v[i].set(id,name,amount);
     }
-    sort(n,v);
     for(int i=0; i<n; i++){
         v[i].display();
     }
