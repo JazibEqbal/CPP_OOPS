@@ -14,9 +14,11 @@ void fibonacci(int n){
 };
 
 int main(){
+    cout<<"Enter number of terms "<<endl;
     int n;
     cin>>n;
-
+    cout<<"Fibonacci Series: ";
     fibonacci(n);
+    cout<<"\n";
     return 0;
 }

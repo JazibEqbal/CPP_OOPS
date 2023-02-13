@@ -22,9 +22,10 @@ int main(){
         cin>>r;
         areaCircum(r);
     }else{
-        cout<<"Enter length and breadth"<<endl;
         float l,b;
+        cout<<"Enter length "<<endl;
         cin>>l;
+        cout<<"Enter breadth "<<endl;
         cin>>b;
         areaPeri(l,b);
     }

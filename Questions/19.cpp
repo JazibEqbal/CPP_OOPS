@@ -41,7 +41,6 @@ class Vehicle_Policy{
             cout<<"Vehicle_Name: "<<getName()<<endl;
             cout<<"Amount: "<<getAmount()<<endl;
         }
-       ~Vehicle_Policy(){}
 };
 
 
