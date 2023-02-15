@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 class Book{
@@ -19,6 +19,27 @@ class Book{
        void display();
        void credit(double amount);
        void debit(double amount);
+       bool operator<(Book &b){
+           if(balance<b.balance){
+            return true;
+           }
+           else{
+            return false;
+           }
+       };
+       bool operator>(Book &b){
+        if(balance>b.balance){
+            return true;
+           }
+           else{
+            return false;
+           }
+       }
+       bool operator==(Book &b){
+        if(balance==b.balance){
+            return true;
+        }
+       }
        //getterrs
        double getBalance(){
         return this->balance;
@@ -67,14 +88,21 @@ bool compareBalance(Book b1,Book b2){
 };
 
 
+
 int main(){
-    Book b1("aaaaaa",300);
+    Book b1("aaaaaa",300),b2("abbbaa",500);
     //Book b2(20,"Jajaj",2400);
     //cout<<compareBalance(b1,b2);
     //b1.debit(10000);
     //Book b(b1);
-    Book b,c;
+    // Book b,c;
     //b.display();
     //c.display();
+    if(b1>b2){
+        cout<<"Yes";
+    }
+    else{
+        cout<<"gand";
+    }
     return 0;
 }
