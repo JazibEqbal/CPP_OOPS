@@ -102,7 +102,7 @@ int main(){
         cout<<"Yes";
     }
     else{
-        cout<<"gand";
+        cout<<"No";
     }
     return 0;
 }
