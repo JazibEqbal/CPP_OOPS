@@ -20,7 +20,18 @@ void display(struct Book* book){
 
 int main(){
     struct Book book;
-    accept(&book,234,"India After Gandhi",499.9);
+    int id;
+    cout<<"Enter book id: "<<endl;
+    cin>>id;
+    string str;
+    cin.ignore();
+    cout<<"Enter book name: "<<endl;
+    getline(cin,str);
+    cout<<"Enter book price: "<<endl;
+    double price;
+    cin>>price;
+    accept(&book,id,str,price);
+    cout<<"Details of book is:"<<endl;
     display(&book);
     return 0;
 }

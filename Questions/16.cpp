@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+static int count=0;
 
 class Complex{
     private:
@@ -10,10 +11,12 @@ class Complex{
         Complex(){
             real = 0;
             imag = 0;
+            count++;
         }
         Complex(int real,int imag){
             this->real=real;
             this->imag=imag;
+            count++;
         }
         int getReal(){
             return real;
@@ -38,20 +41,12 @@ class Complex{
         void addComplex(Complex c,Complex c1);
 };
 
-
-void Complex::addComplex(Complex c,Complex c1){
-       Complex res;
-       res.real = c.real+ c1.real;
-       res.imag= c.imag+c1.imag;
-       cout<<"Addition of two complex numbers is ";
-       if(imag <0){
-            cout<<res.real<<"-"<<res.imag<<"i"<<endl;
-       }else{
-            cout<<res.real<<"+"<<res.imag<<"i"<<endl;
-       }
+static int getCount(){
+     return count;
 }
+
 int main(){
-    Complex c,c1,res;
+    Complex c,c1;
     c.setReal(23);
     c.setImag(3);
     c1.setReal(3);
@@ -60,6 +55,6 @@ int main(){
     c.display();
     cout<<"Complex number 2 is ";
     c1.display();
-    res.addComplex(c,c1);
+    cout<<"Number of objects created is "<<getCount()<<endl;
     return 0;
 }

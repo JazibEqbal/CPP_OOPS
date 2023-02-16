@@ -7,7 +7,6 @@ void insertElement(int a[],int index,int n,int key){
     }
     a[index]=key;
     n++;
-    //cout<<n;
     for(int i=0;i<n;i++){
         cout<<a[i]<<" ";
 }
