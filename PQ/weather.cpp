@@ -60,3 +60,4 @@ int main(){
     cout<<w.getTemperature()<<endl;
     return 0;
 }
+
