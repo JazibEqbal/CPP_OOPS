@@ -1,44 +1,60 @@
 #include <iostream>
+#include <cstring>
+
 using namespace std;
 
-class Student
-{
-    int roll;
-    string name;
-    string dob;
+class Date{
+    private:
+       int dd;
+       int mm;
+       int yy;
+    public:
+        Date(){}
+        Date(int day,int month,int year):dd(day),mm(month),yy(year){}
+        void display(){
+            cout<<dd<<"/"<<mm<<"/"<<yy<<endl;
+        }
+};
 
+class Student {
+private:
+    static int nextRollNumber; 
+    int rollNumber;
+    char name[50];
+    Date dob;
 public:
-    Student(int roll = 0, string name = "No name", string dob = "No dob")
-    {
-        this->roll = roll;
-        this->name = name;
-        this->dob = dob;
+    Student() {
+        rollNumber = ++nextRollNumber;
     }
-    void accept(int roll, string name, string dob)
-    {
-        this->roll = roll;
-        this->name = name;
-        this->dob = dob;
+    Student(const char* name,const Date& dateOfBirth):dob(dateOfBirth) {
+        rollNumber = ++nextRollNumber;
+        strcpy(this->name, name);
     }
-    void display()
-    {
-        cout << this->roll << endl;
-        cout << this->name << endl;
-        cout << this->dob << endl;
+    void accept() {
+        std::cout << "Enter student name: ";
+        std::cin.getline(name, sizeof(name));
+        cout << "Enter date of birth (in dd/mm/yyyy format): ";
+        int day, month, year;
+        cin >> day >>  month >> year;
+        dob = Date(day, month, year);
+    }
+    void display() {
+        cout << "Roll number: " << rollNumber << '\n';
+        cout << "Name: " << name << '\n';
+        cout << "Date of birth: ";
+        dob.display();
+        cout << '\n';
     }
 };
 
-int main()
-{
-    Student s;
-    int roll;
-    cin >> roll;
-    cin.ignore();
-    string name;
-    getline(cin, name);
-    string dob;
-    getline(cin, dob);
-    s.accept(roll, name, dob);
-    s.display();
+int Student::nextRollNumber = 0;
+
+int main() {
+     Student s1;  
+     s1.accept(); 
+     s1.display(); 
+
+    Student s2("Jazib", Date(26, 07, 2000)); 
+    s2.display(); 
     return 0;
 }
