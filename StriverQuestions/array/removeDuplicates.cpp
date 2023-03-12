@@ -2,14 +2,14 @@
 using namespace std;
 
 int removeDuplicatesC(int a[],int n){
-      int count=0;
-      for(int i=0;i<n;i++){
-        if(i < n-1 && a[i] == a[i+1]){
-            continue;
-        }
-        a[count++]= a[i];
+    int count=0;
+    for(int i=0;i<n;i++){
+      if(i < n-1 && a[i] == a[i+1]){
+          continue;
       }
-    return count;
+      a[count++]= a[i];
+    }
+  return count;
 };
 
 int main(){
