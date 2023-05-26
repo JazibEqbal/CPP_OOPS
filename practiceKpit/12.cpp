@@ -3,20 +3,21 @@ using namespace std;
 
 struct Book
 {
-    int bookid;
+    int bookId;
     string title;
     double price;
 };
 
 void accept(struct Book *book, int id, string title, double price)
 {
+    book->bookId = id;
     book->title = title;
-    book->bookid = id;
     book->price = price;
 }
+
 void display(struct Book *book)
 {
-    cout << "Book id: " << book->bookid << endl;
+    cout << "Book id: " << book->bookId << endl;
     cout << "Title: " << book->title << endl;
     cout << "Price: " << book->price << endl;
 }
@@ -29,31 +30,30 @@ int main()
     struct Book book[n];
     for (int i = 0; i < n; i++)
     {
-        cout << "Enter details for record " << i + 1 << endl;
         int id;
-        cout << "Enter book id:" << endl;
+        cout << "Enter book id: " << endl;
         cin >> id;
-        string name;
+        string str;
         cin.ignore();
-        cout << "Enter book name: " << endl;
-        getline(cin, name);
-        cout << "Enter book price: " << endl;
+        cout << "Enter book title: " << endl;
+        getline(cin, str);
         double price;
+        cout << "Enter book price: " << endl;
         cin >> price;
-        accept(&book[i], id, name, price);
-        cout << "\n";
+        accept(&book[i], id, str, price);
     }
+
     cout << "Do you want to display the records?" << endl;
     char options;
     cin >> options;
-    if (options == 'Y' || options == 'y')
+    if (options == 'y' || options == 'Y')
     {
         switch (options)
         {
         case 'Y':
             for (int i = 0; i < n; i++)
             {
-                cout << "Details for record " << i + 1 << " is" << endl;
+                cout << "Details for record " << i << " is" << endl;
                 display(&book[i]);
                 cout << "\n";
             }
@@ -61,7 +61,7 @@ int main()
         case 'y':
             for (int i = 0; i < n; i++)
             {
-                cout << "Details for record " << i + 1 << " is" << endl;
+                cout << "Details for record " << i << " is" << endl;
                 display(&book[i]);
                 cout << "\n";
             }

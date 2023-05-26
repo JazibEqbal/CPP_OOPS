@@ -16,7 +16,7 @@ void moveZeroes(int a[],int n){
     }
 }
 int main(){
-    int arr[] = {9,0,0,0,9};
+    int arr[] = {0,9,0,0,0,9};
     int n = sizeof(arr)/sizeof(arr[0]);
     moveZeroes(arr,n);
     return 0;
